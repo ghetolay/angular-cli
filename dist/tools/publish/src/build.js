@@ -208,7 +208,7 @@ function build(packagesToBuild, opts, logger) {
     })
         .then(() => {
         if (!opts.local) {
-            return;
+            //return;
         }
         logger.info('Changing dependencies between packages to tar files...');
         logger.warn('=================================================');
@@ -217,34 +217,41 @@ function build(packagesToBuild, opts, logger) {
         Object.keys(packages).forEach(pkgName => {
             const pkg = packages[pkgName];
             const json = JSON.parse(fs.readFileSync(pkg.packageJson).toString());
+            /*
             if (!json['dependencies']) {
-                json['dependencies'] = {};
+              json['dependencies'] = {};
             }
             if (!json['devDependencies']) {
-                json['devDependencies'] = {};
+              json['devDependencies'] = {};
             }
+    
             for (const packageName of Object.keys(packages)) {
-                if (json['dependencies'].hasOwnProperty(packageName)) {
-                    json['dependencies'][packageName] = packages[packageName].tar;
-                }
-                else if (json['devDependencies'].hasOwnProperty(packageName)) {
-                    json['devDependencies'][packageName] = packages[packageName].tar;
-                }
+              if (json['dependencies'].hasOwnProperty(packageName)) {
+                json['dependencies'][packageName] = packages[packageName].tar;
+              } else if (json['devDependencies'].hasOwnProperty(packageName)) {
+                json['devDependencies'][packageName] = packages[packageName].tar;
+              }
             }
+    
             if (opts.devkit) {
-                // Load the packages info for devkit.
-                const devkitPackages = require(opts.devkit + '/lib/packages').packages;
-                for (const packageName of Object.keys(devkitPackages)) {
-                    console.log(pkgName, packageName);
-                    if (json['dependencies'].hasOwnProperty(packageName)) {
-                        json['dependencies'][packageName] = devkitPackages[packageName].tar;
-                    }
-                    else if (json['devDependencies'].hasOwnProperty(packageName)) {
-                        json['devDependencies'][packageName] = devkitPackages[packageName].tar;
-                    }
+              // Load the packages info for devkit.
+              const devkitPackages = require(opts.devkit + '/lib/packages').packages;
+    
+              for (const packageName of Object.keys(devkitPackages)) {
+                console.log(pkgName, packageName);
+                if (json['dependencies'].hasOwnProperty(packageName)) {
+                  json['dependencies'][packageName] = devkitPackages[packageName].tar;
+                } else if (json['devDependencies'].hasOwnProperty(packageName)) {
+                  json['devDependencies'][packageName] = devkitPackages[packageName].tar;
                 }
+              }
             }
-            fs.writeFileSync(pkg.distPackageJson, JSON.stringify(json, null, 2));
+            */
+            const dependencies = json['dependencies'];
+            if (dependencies && dependencies['@ngtools/webpack']) {
+                delete dependencies['@ngtools/webpack'];
+                fs.writeFileSync(pkg.distPackageJson, JSON.stringify(json, null, 2));
+            }
         });
     })
         .then(() => {
