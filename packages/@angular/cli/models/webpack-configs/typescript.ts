@@ -88,6 +88,8 @@ function _createAotPlugin(wco: WebpackConfigOptions, options: any) {
       // If we don't explicitely list excludes, it will default to `['**/*.spec.ts']`.
       exclude: [],
       include: options.include,
+
+      defaultStyleType: appConfig.defaultStyleType
     }, options);
     return new AngularCompilerPlugin(pluginOptions);
   } else {
@@ -101,7 +103,9 @@ function _createAotPlugin(wco: WebpackConfigOptions, options: any) {
       hostReplacementPaths,
       sourceMap: buildOptions.sourcemaps,
       // If we don't explicitely list excludes, it will default to `['**/*.spec.ts']`.
-      exclude: []
+      exclude: [],
+
+      defaultStyleType: appConfig.defaultStyleType
     }, options);
     return new AotPlugin(pluginOptions);
   }
