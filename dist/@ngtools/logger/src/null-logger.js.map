@@ -1,0 +1,1 @@
+{"version":3,"file":"null-logger.js","sourceRoot":"/home/ghetolay/git/angular-cli/","sources":["src/null-logger.ts"],"names":[],"mappings":";;AAAA,qCAAgC;AAEhC,gDAA2C;AAE3C,qCAAmC;AAGnC,gBAAwB,SAAQ,eAAM;IACpC,YAAY,SAAwB,IAAI;QACtC,KAAK,CAAC,EAAE,EAAE,MAAM,CAAC,CAAC;QAClB,IAAI,CAAC,WAAW,GAAG,uBAAU,CAAC,KAAK,EAAE,CAAC;IACxC,CAAC;CACF;AALD,gCAKC"}

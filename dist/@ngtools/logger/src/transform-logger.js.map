@@ -1,0 +1,1 @@
+{"version":3,"file":"transform-logger.js","sourceRoot":"/home/ghetolay/git/angular-cli/","sources":["src/transform-logger.ts"],"names":[],"mappings":";;AAEA,qCAA0C;AAG1C,qBAA6B,SAAQ,eAAM;IACzC,YAAY,IAAY,EACZ,SAAiE,EACjE,SAAwB,IAAI;QACtC,KAAK,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;QACpB,IAAI,CAAC,WAAW,GAAG,SAAS,CAAC,IAAI,CAAC,WAAW,CAAC,CAAC;IACjD,CAAC;CACF;AAPD,0CAOC"}
